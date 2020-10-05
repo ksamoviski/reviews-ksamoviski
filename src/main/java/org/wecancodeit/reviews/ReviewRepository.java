@@ -13,8 +13,22 @@ public class ReviewRepository {
 
     Map<Long, Review> reviewsList = new HashMap<>();
 
-    public ReviewRepository(Review ...reviewsToAdd) {
-        for(Review review: reviewsToAdd){
+    public ReviewRepository() {
+        Review musicReview = new Review(1L, "Album Review", "10.5.2020", "This is a review of an album",
+                " ", "music", "Content for review would go here.");
+        Review bookReview = new Review(2L, "Book Review", "10.5.2020", "This is a review of a book",
+                " ", "book", "Content for review would go here.");
+        Review artReview = new Review(3L, "Art Review", "10.5.2020", "This is a review of a work of art",
+                " ", "art", "Content for review would go here.");
+
+        reviewsList.put(musicReview.getId(), musicReview);
+        reviewsList.put(bookReview.getId(),bookReview);
+        reviewsList.put(artReview.getId(), artReview);
+
+    }
+
+    public ReviewRepository(Review... reviewsToAdd) {
+        for (Review review : reviewsToAdd) {
             reviewsList.put(review.getId(), review);
         }
     }
@@ -23,7 +37,7 @@ public class ReviewRepository {
         return reviewsList.get(id);
     }
 
-    public Collection<Review> findAll(){
+    public Collection<Review> findAll() {
         return reviewsList.values();
     }
 }
