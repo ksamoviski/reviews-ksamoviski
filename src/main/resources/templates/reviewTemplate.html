@@ -1,24 +1,44 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${reviewModel.title}">A course</title>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <title>Reviews</title>
 </head>
 <body>
 
-<header>
-    <h1 th:text="${reviewModel.title}">A Course</h1>
+<header class="header">
+    <h1 id="header__logo">Rockin Reviews</h1>
+    <nav class="header__nav">
+<!--        <ul class="header__nav_list">-->
+<!--            <li class="header__nav_listItem" th:each="review: ${reviewsModel}"><a-->
+<!--                    th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a></li>-->
+<!--        </ul>-->
+    </nav>
 </header>
+<div class="container">
 
-<main>
-    <ul>
-        <p><a href="/reviews">Reviews</a></p>
-        <li th:text="${reviewModel.title}"></li>
-    </ul>
-    <h2 th:text="${reviewModel.description}"></h2>
-</main>
+    <p><a href="/reviews">back to all reviews</a></p>
+    <h2 th:text="${reviewModel.title}"></h2>
 
-<footer>
-    <small>&copy wcci 2020</small>
+    <section class="review">
+        <figure>
+            <img th:src="@{/images/archer.jpg}" alt="trail profile" class="review__image">
+        </figure>
+
+        <article class="review__heading">
+            <h2 th:text="${reviewModel.description}"></h2>
+            <p th:text="${reviewModel.date}"></p>
+            <p th:text="${reviewModel.content}"></p>
+        </article>
+    </section>
+</div>
+
+<footer class="footer">
+    <small class="footer__copyright">&copy;Karin Samoviski 2020</small>
+    <section class="footer__social">
+        <a href="https://github.com/ksamoviski" class="fa fa-github"></a>
+    </section>
 </footer>
 
 </body>

@@ -1,22 +1,68 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>A List of All Available Reviews</title>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <title>Reviews</title>
 </head>
 <body>
 
-<header>
-    <h1>A List of All Reviews</h1>
+
+<header class="header">
+    <h1 id="header__logo">Rockin Reviews</h1>
+    <nav class="header__nav">
+        <ul class="header__nav_list">
+            <li class="header__nav_listItem" th:each="review: ${reviewsModel}"><a
+                    th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a></li>
+        </ul>
+    </nav>
 </header>
 
-<main>
-    <ul>
-        <li th:each="review: ${reviewsModel}"><a th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a></li>
-    </ul>
-</main>
+<div class="container">
+    <h2 class="reviews__title">A List of All Reviews</h2>
 
-<footer>
-    <small>&copy wcci 2020</small>
+    <section class="reviews">
+        <article class="reviews__column">
+            <h3 class="reviews__column_title" th:each="review: ${reviewsModel}"><a
+                    th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a>
+                </h3>
+            <figure class="reviews__column_title">
+                <img src="/images/rainbow.JPG" alt="rainbow" class="reviews__column_image">
+            </figure>
+<!--            <p class="reviews__description" th:text="${reviewModel.description}"></p>-->
+        </article>
+
+        <article class="reviews__column">
+            <h3 class="reviews__column_title" th:each="review: ${reviewsModel}"><a
+                    th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a>
+            </h3>
+            <figure class="reviews__column_title">
+                <img src="/images/rainbow.JPG" alt="rainbow" class="reviews__column_image">
+            </figure>
+            <p class="reviews__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
+                repellendus ducimus adipisci,officiis beatae veritatis neque cumque exercitationem ipsum doloremque
+                quaerat provident eaque, ratione dignissimos saepe error deleniti ea.</p>
+        </article>
+
+        <article class="reviews__column">
+            <h3 class="reviews__column_title" th:each="review: ${reviewsModel}"><a
+                    th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a>
+            </h3>
+            <figure class="reviews__column_title">
+                <img src="/images/rainbow.JPG" alt="rainbow" class="reviews__column_image">
+            </figure>
+            <p class="reviews__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
+                repellendus ducimus adipisci,officiis beatae veritatis neque cumque exercitationem ipsum doloremque
+                quaerat provident eaque, ratione dignissimos saepe error deleniti ea.</p>
+        </article>
+    </section>
+</div>
+
+<footer class="footer">
+    <small class="footer__copyright">&copy;Karin Samoviski 2020</small>
+    <section class="footer__social">
+        <a href="https://github.com/ksamoviski" class="fa fa-github"></a>
+    </section>
 </footer>
 
 </body>
