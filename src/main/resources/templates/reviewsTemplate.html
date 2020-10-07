@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Reviews</title>
 </head>
 <body>
@@ -21,39 +23,15 @@
 <div class="container">
     <h2 class="reviews__title">A List of All Reviews</h2>
 
-    <section class="reviews">
-        <article class="reviews__column">
-            <h3 class="reviews__column_title" th:each="review: ${reviewsModel}"><a
+    <section class="reviews" th:each="review: ${reviewsModel}">
+        <article class="reviews__column" >
+            <h3 class="reviews__column_title" ><a
                     th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a>
                 </h3>
             <figure class="reviews__column_title">
-                <img src="/images/rainbow.JPG" alt="rainbow" class="reviews__column_image">
+                <img th:src="${review.imageUrl}" alt="rainbow" class="reviews__column_image">
             </figure>
-<!--            <p class="reviews__description" th:text="${reviewModel.description}"></p>-->
-        </article>
-
-        <article class="reviews__column">
-            <h3 class="reviews__column_title" th:each="review: ${reviewsModel}"><a
-                    th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a>
-            </h3>
-            <figure class="reviews__column_title">
-                <img src="/images/rainbow.JPG" alt="rainbow" class="reviews__column_image">
-            </figure>
-            <p class="reviews__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
-                repellendus ducimus adipisci,officiis beatae veritatis neque cumque exercitationem ipsum doloremque
-                quaerat provident eaque, ratione dignissimos saepe error deleniti ea.</p>
-        </article>
-
-        <article class="reviews__column">
-            <h3 class="reviews__column_title" th:each="review: ${reviewsModel}"><a
-                    th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a>
-            </h3>
-            <figure class="reviews__column_title">
-                <img src="/images/rainbow.JPG" alt="rainbow" class="reviews__column_image">
-            </figure>
-            <p class="reviews__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
-                repellendus ducimus adipisci,officiis beatae veritatis neque cumque exercitationem ipsum doloremque
-                quaerat provident eaque, ratione dignissimos saepe error deleniti ea.</p>
+            <p class="reviews__description" th:text="${review.description}"></p>
         </article>
     </section>
 </div>

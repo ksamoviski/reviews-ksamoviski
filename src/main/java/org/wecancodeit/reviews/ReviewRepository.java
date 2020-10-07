@@ -15,11 +15,11 @@ public class ReviewRepository {
 
     public ReviewRepository() {
         Review musicReview = new Review(1L, "Album Review", "10.5.2020", "This is a review of an album",
-                "/images/Beck-Odelay.jpg", "music", "Content for review would go here.");
+                "/images/sunset.jpg", "music", "Content for review would go here.");
         Review bookReview = new Review(2L, "Book Review", "10.5.2020", "This is a review of a book",
-                " ", "book", "Content for review would go here.");
+                "/images/archer.jpg ", "book", "Content for review would go here.");
         Review artReview = new Review(3L, "Art Review", "10.5.2020", "This is a review of a work of art",
-                " ", "art", "Content for review would go here.");
+                " /images/rainbow.jpg", "art", "Content for review would go here.");
 
         reviewsList.put(musicReview.getId(), musicReview);
         reviewsList.put(bookReview.getId(),bookReview);

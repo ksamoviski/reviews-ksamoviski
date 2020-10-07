@@ -25,6 +25,7 @@ public class ReviewController {
         if(reviewRepository.findOne(id) == null){
             throw new ReviewNotFoundException();
         }
+        model.addAttribute("reviewsModel", reviewRepository.findAll());
         model.addAttribute("reviewModel", reviewRepository.findOne(id));
         return "reviewTemplate";
     }

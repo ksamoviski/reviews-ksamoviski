@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Reviews</title>
 </head>
 <body>
@@ -10,10 +12,10 @@
 <header class="header">
     <h1 id="header__logo">Rockin Reviews</h1>
     <nav class="header__nav">
-<!--        <ul class="header__nav_list">-->
-<!--            <li class="header__nav_listItem" th:each="review: ${reviewsModel}"><a-->
-<!--                    th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a></li>-->
-<!--        </ul>-->
+        <ul class="header__nav_list">
+            <li class="header__nav_listItem" th:each="review: ${reviewsModel}"><a
+                    th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a></li>
+        </ul>
     </nav>
 </header>
 <div class="container">
@@ -23,7 +25,7 @@
 
     <section class="review">
         <figure>
-            <img th:src="@{/images/archer.jpg}" alt="trail profile" class="review__image">
+            <img th:src="${reviewModel.imageUrl}" alt="review image" class="review__image">
         </figure>
 
         <article class="review__heading">
